@@ -16,7 +16,7 @@ import java.net.URL
 try {
 node {
 stage '\u2776 Stage 1'
-echo "\u2600 BUILD_URL=${env.BUILD_URL}"
+echo "\u2600 BUILD_URL=SS"
  
 def workspace = pwd()
 echo "\u2600 workspace=${workspace}"
@@ -38,12 +38,7 @@ catch (exc) {
 } finally {
   
  (currentBuild.result != "ABORTED") && node("master") {
-     // Send e-mail notifications for failed or unstable builds.
-     // currentBuild.result must be non-null for this step to work.
-     step([$class: 'Mailer',
-        notifyEveryUnstableBuild: true,
-        recipients: "${email_to}",
-        sendToIndividuals: true])
+  echo "SSN10 -Build Failed"
  }
  
  // Must re-throw exception to propagate error:
