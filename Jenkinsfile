@@ -51,7 +51,7 @@ finally {
 def buildName="${jobName} #${env.BUILD_NUMBER}"
 echo "Build : ${buildName}"
 
-throttle(['HelloWorld-Branches-Multibranch']) {
+throttle(['MultiBranchPPJob-Multibranch']) {
   node('agent') {
     stage('Git') {
       sh("git config --list")
