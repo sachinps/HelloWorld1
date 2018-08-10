@@ -91,6 +91,7 @@ throttle(['MultiBranchPPJob-Multibranch']) {
     }
     else if ( branchName ==~ $/[/]?sandbox/.*/$ ) {
       println "Do not push sandbox branch ${branchName}"
+      willPush=true
     }
     else if ( branchName == "master" ) {
       echo "Do not push master branch"
