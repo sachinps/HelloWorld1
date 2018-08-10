@@ -1,6 +1,6 @@
 #!groovy
 import static java.util.UUID.randomUUID
-def branchName= 
+def branchName=env.BRANCH_NAME;
 try {
   if (branchName) {
     branchName = URLDecoder.decode(env.BRANCH_NAME, "UTF-8");
