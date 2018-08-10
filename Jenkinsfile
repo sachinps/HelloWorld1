@@ -4,6 +4,7 @@ def branchName=env.BRANCH_NAME;
 try {
   if (branchName) {
     branchName = URLDecoder.decode(env.BRANCH_NAME, "UTF-8");
+     echo "Branch : ${branchName}"
 }
   else {
     branchName="master"
@@ -14,6 +15,15 @@ catch (UnsupportedEncodingException e) {
 }
 finally {
   echo "Branch : ${branchName}"
+}
+def willPush=false
+if ( branchName ==~ $/[/]?feature/.*/$ ) {
+  println "Push feature branch ${branchName}"
+  willPush=true
+}
+else if ( branchName ==~ $/[/]?sandbox/.*/$ ) {
+  println "Do not push sandbox branch ${branchName}"
+  willPush=true
 }
 pipeline {	
     agent any
@@ -29,15 +39,7 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        def willPush=false
-        if ( branchName ==~ $/[/]?feature/.*/$ ) {
-          println "Push feature branch ${branchName}"
-          willPush=true
-        }
-        else if ( branchName ==~ $/[/]?sandbox/.*/$ ) {
-          println "Do not push sandbox branch ${branchName}"
-          willPush=true
-        }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
