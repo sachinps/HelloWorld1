@@ -42,6 +42,7 @@ pipeline {
         stage('Git Push'){
           steps{
             echo 'Git Push'
+          }
             def pushResult="pushed"
             try
             {
@@ -77,7 +78,7 @@ pipeline {
               notify(subject, to, body)
             }
           }
-        }
+        
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
