@@ -7,5 +7,6 @@ class HelloName
     public static void main(String args[])
     {
 			System.out.println("Hello, Sachin Sasidharan");
+            System.out.println("Hello, Amit Kulkarny");
     }
 }
