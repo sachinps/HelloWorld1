@@ -9,6 +9,12 @@ try {
     branchName="master"
   }
 }
+catch (UnsupportedEncodingException e) {
+  echo "URLDecoder exception ${e}"
+}
+finally {
+  echo "Branch : ${branchName}"
+}
 pipeline {	
     agent any
 
