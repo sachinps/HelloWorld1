@@ -14,5 +14,6 @@ class HelloName
             System.out.println("Hello, DevOps Testing4");
             System.out.println("Hello, DevOps Testing2");
             System.out.println("Hello, DevOps Testing3");
+			System.out.println("Hello, DevOps Testing from flat2");
     }
 }
