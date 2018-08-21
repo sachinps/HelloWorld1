@@ -1,10 +1,13 @@
 #!groovy
 import static java.util.UUID.randomUUID
 def branchName=env.BRANCH_NAME;
+def TMP_MERGE_BRANCH = "tmp-merge-${env.BUILD_NUMBER}"
 try {
   if (branchName) {
     branchName = URLDecoder.decode(env.BRANCH_NAME, "UTF-8");
      echo "Branch : ${branchName}"
+     echo "TMP_MERGE_BRANCH : ${TMP_MERGE_BRANCH}"
+     echo "git branch -d $TMP_MERGE_BRANCH || true"
 }
   else {
     branchName="master"
