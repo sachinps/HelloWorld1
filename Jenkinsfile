@@ -7,6 +7,7 @@ try {
     branchName = URLDecoder.decode(env.BRANCH_NAME, "UTF-8");
      echo "Branch : ${branchName}"
      echo "TMP_MERGE_BRANCH : ${TMP_MERGE_BRANCH}"
+     echo "Path Variable : ${env.PATH}"
      echo "git branch -d $TMP_MERGE_BRANCH || true"
 }
   else {
