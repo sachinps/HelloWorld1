@@ -46,8 +46,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh '''
-                    #!/bin/bash
+                sh '''#!/bin/bash
                     echo "hello world"
                 '''
             }
