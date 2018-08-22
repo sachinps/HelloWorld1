@@ -15,5 +15,6 @@ class HelloName
             System.out.println("Hello, DevOps Testing2");
             System.out.println("Hello, DevOps Testing3");
             System.out.println("Hello, DevOps For Merging Testing");
+            System.out.println("Hello, DevOps For Merging Testing1");
     }
 }
