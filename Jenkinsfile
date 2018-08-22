@@ -9,7 +9,10 @@ pipeline {
                 DEBUG_FLAGS = '-g'
             }
             steps {
-                sh 'printenv'
+                sh """\
+                    #!/bin/sh
+                    echo hello sh!
+                """
             }
         }
     }
