@@ -1,6 +1,17 @@
 #!groovy
 import static java.util.UUID.randomUUID
 def branchName=env.BRANCH_NAME;
+
+
+def willPush=false
+if ( branchName ==~ $/[/]?feature/.*/$ ) {
+  println "Push feature branch ${branchName}"
+  willPush=true
+}
+else if ( branchName ==~ $/[/]?sandbox/.*/$ ) {
+  println "Do not push sandbox branch ${branchName}"
+  willPush=true
+}
 pipeline {	
     agent any
 
