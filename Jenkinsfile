@@ -9,9 +9,9 @@ pipeline {
                 DEBUG_FLAGS = '-g'
             }
             steps {
-                sh """\
+                sh """
                     #!/bin/sh
-                    echo hello sh!
+                    echo hello sh
                 """
             }
         }
