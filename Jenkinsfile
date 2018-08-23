@@ -1,8 +1,21 @@
 #!groovy
 import static java.util.UUID.randomUUID
 def branchName=env.BRANCH_NAME;
-
-
+try {
+  if (branchName) {
+    branchName = URLDecoder.decode(env.BRANCH_NAME, "UTF-8");
+     echo "Branch : ${branchName}"
+}
+  else {
+    branchName="master"
+  }
+}
+catch (UnsupportedEncodingException e) {
+  echo "URLDecoder exception ${e}"
+}
+finally {
+  echo "Branch : ${branchName}"
+}
 def willPush=false
 if ( branchName ==~ $/[/]?feature/.*/$ ) {
   println "Push feature branch ${branchName}"
@@ -30,7 +43,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'echo hello world'
             }
         }
     }
