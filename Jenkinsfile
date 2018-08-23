@@ -1,16 +1,26 @@
-pipeline {
+#!groovy
+import static java.util.UUID.randomUUID
+def branchName=env.BRANCH_NAME;
+pipeline {	
     agent any
-    environment { 
-        CC = 'clang'
-    }
+
     stages {
-        stage('Example') {
-            environment { 
-                DEBUG_FLAGS = '-g'
-            }
+        stage('Build') {
             steps {
-                sh 'echo hello sh!'
+                echo "Building.:${branchName}"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                sh 'echo hello world'
             }
         }
     }
-}
+}	
