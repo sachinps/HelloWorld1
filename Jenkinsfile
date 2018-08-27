@@ -55,7 +55,7 @@ pipeline {
                 git rev-parse refs/heads/master || true
                 git rev-parse HEAD || true
                 git status
-                git push 'http://sachinps:H7tDUgcl@github.com/sachinps/HelloWorld1.git' master
+                git push https://sachinps:H7tDUgcl@github.com/sachinps/HelloWorld1.git master
                 ''' 
             }
         }
