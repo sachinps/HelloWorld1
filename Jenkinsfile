@@ -23,7 +23,7 @@ if ( branchName ==~ $/[/]?feature/.*/$ ) {
 }
 else if ( branchName ==~ $/[/]?sandbox/.*/$ ) {
   println "Do not push sandbox branch ${branchName}"
-  willPush=false;
+  willPush=true
 }
 pipeline {	
     agent any
@@ -55,7 +55,7 @@ pipeline {
                 git rev-parse refs/heads/master || true
                 git rev-parse HEAD || true
                 git status
-                git push https://sachinps:H7tDUgcl@github.com/sachinps/HelloWorld1.git master
+                git push 'https://sachinps:123#3dplm@github.com/sachinps/HelloWorld1.git' master
                 ''' 
             }
         }
