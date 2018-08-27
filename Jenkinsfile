@@ -43,7 +43,20 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                bat 'echo "Hello World"'
+                bat '''
+                git branch -d $TMP_MERGE_BRANCH || true
+                git branch $TMP_MERGE_BRANCH
+                git checkout $TMP_MERGE_BRANCH
+                git log --max-count=5 --graph --decorate --oneline --abbrev-commit origin/master $TMP_MERGE_BRANCH
+                git branch -f master $TMP_MERGE_BRANCH
+                git checkout master
+                git branch -d $TMP_MERGE_BRANCH
+                git symbolic-ref HEAD || true
+                git rev-parse refs/heads/master || true
+                git rev-parse HEAD || true
+                git status
+                git push origin master
+                ''' 
             }
         }
     }
