@@ -15,7 +15,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'deploying..'
+                bat 'echo "Hello World"'
             }
         }
     }
