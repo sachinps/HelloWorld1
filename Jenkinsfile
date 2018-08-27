@@ -41,9 +41,9 @@ pipeline {
         }
 
         stage('Deploy') {
-            if(willPush)
-            {
-                steps {
+            steps {
+                if(willPush)
+                {
                     echo 'Deploying....'
                     bat '''
                     git branch -d $TMP_MERGE_BRANCH || true
